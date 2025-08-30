@@ -1,0 +1,78 @@
+﻿<Window x:Class="HotelBooking.RoomsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelBooking"
+        mc:Ignorable="d"
+        Title="RoomsView" Height="450" Width="800" Background="#FFDDF4E7">
+
+    <Grid Margin="0,0,0,-6">
+        <Rectangle HorizontalAlignment="Left" Height="131" Margin="181,69,0,0" Stroke="White" VerticalAlignment="Top" Width="404" Fill="#FF67C090">
+            <Rectangle.Effect>
+                <BlurEffect/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <Label Content="Room Management" HorizontalAlignment="Left" Height="54" Margin="11,10,0,0" VerticalAlignment="Top" Width="372" 
+               FontFamily="Times New Roman" FontWeight="Bold" FontSize="36"/>
+
+        <Label Content="Room Number" HorizontalAlignment="Left" Height="24" Margin="204,75,0,0" VerticalAlignment="Top" Width="105" 
+               FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Room Type" HorizontalAlignment="Left" Height="24" Margin="204,137,0,0" VerticalAlignment="Top" Width="105" 
+               FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Price Per Night" HorizontalAlignment="Left" Height="24" Margin="410,75,0,0" VerticalAlignment="Top" Width="105" 
+               FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Availability" HorizontalAlignment="Left" Height="24" Margin="410,137,0,0" VerticalAlignment="Top" Width="105" 
+               FontFamily="Times New Roman" FontWeight="Bold"/>
+
+        <TextBox x:Name="txtRoomNumber" HorizontalAlignment="Left" Height="24" Margin="204,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontFamily="Times New Roman" FontSize="12" FontWeight="Bold"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="24" Margin="410,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontFamily="Times New Roman" FontSize="12" FontWeight="Bold"/>
+
+        <ComboBox x:Name="txtType" HorizontalAlignment="Left" Height="24" Margin="204,166,0,0" VerticalAlignment="Top" Width="147">
+            <ComboBoxItem Content="Single"/>
+            <ComboBoxItem Content="Double"/>
+            <ComboBoxItem Content="Suite"/>
+        </ComboBox>
+
+        <CheckBox x:Name="chkAvailable" Content="✅ Yes / ❌ No" HorizontalAlignment="Left" Margin="410,170,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="btnAddRoom" Content="Add Room" HorizontalAlignment="Left" Height="26" Margin="28,211,0,0" VerticalAlignment="Top" Width="133" 
+                Click="btnAddRoom_Click" FontFamily="Times New Roman" FontWeight="Bold" Background="#FF26667F" Foreground="White"/>
+        <Button x:Name="btnUpdateRoom" Content="Update Room" HorizontalAlignment="Left" Height="26" Margin="171,211,0,0" VerticalAlignment="Top" Width="160" 
+                Click="btnUpdateRoom_Click" FontFamily="Times New Roman" FontWeight="Bold" Background="#FF26667F" Foreground="White"/>
+        <Button x:Name="btnDeleteRoom" Content="Delete Room" HorizontalAlignment="Left" Height="26" Margin="343,211,0,0" VerticalAlignment="Top" Width="134" 
+                Click="btnDeleteRoom_Click" FontFamily="Times New Roman" FontWeight="Bold" Background="#FF26667F" Foreground="White"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Height="26" Margin="494,211,0,0" VerticalAlignment="Top" Width="141" 
+                Click="btnClear_Click" FontFamily="Times New Roman" FontWeight="Bold" Background="#FF26667F" Foreground="White"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Height="26" Margin="649,211,0,0" VerticalAlignment="Top" Width="124" 
+                FontFamily="Times New Roman" FontWeight="Bold" Background="#FFCE0000" Foreground="White" Click="btnClose_Click"/>
+
+        <DataGrid x:Name="dgRooms"
+                  HorizontalAlignment="Center"
+                  Height="168"
+                  Margin="0,256,0,0"
+                  VerticalAlignment="Top"
+                  Width="770"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  FontFamily="Times New Roman"
+                  Foreground="Black"
+                  AlternatingRowBackground="#FFF3F6F4"
+                  GridLinesVisibility="Horizontal"
+                  BorderBrush="Gray"
+                  BorderThickness="1" Background="#FF124170" FontWeight="Bold">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="80"/>
+                <DataGridTextColumn Header="Room Number" Binding="{Binding Number}" Width="150"/>
+                <DataGridTextColumn Header="Room Type" Binding="{Binding Type}" Width="150"/>
+                <DataGridTextColumn Header="Price Per Night" Binding="{Binding PricePerNight}" Width="150"/>
+                <DataGridTextColumn Header="Available" Binding="{Binding IsAvailable}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="HotelBooking.BookingForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Booking Management" Height="522" Width="800"
+        WindowStartupLocation="CenterScreen" Background="#FFDDF4E7">
+
+    <Grid Margin="20,20,0,-16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="679*"/>
+            <ColumnDefinition Width="101*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4.54"/>
+            <RowDefinition Height="235.46"/>
+            <RowDefinition Height="Auto" MinHeight="49.96"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="171" Margin="93,48,0,0" Stroke="#FF67C090" VerticalAlignment="Top" Width="599" Opacity="0.475" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Fill="#FF67C090" Grid.ColumnSpan="2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.133"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Effect>
+                <BlurEffect/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Label Content="Room ID:" Margin="104,50,455,159" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <TextBox x:Name="txtRoomId" Margin="0,76,355,133" HorizontalAlignment="Right" Width="207" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Customer ID:" Margin="104,102,455,107" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <TextBox x:Name="txtCustomerId" Margin="104,128,355,81" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Check In:" Margin="450,50,109,159" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <DatePicker x:Name="dpCheckIn" Margin="450,77,9,134" RenderTransformOrigin="0.99,0.335" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Check Out:" Margin="450,102,109,107" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Total Amount:" Margin="104,155,471,54" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <TextBox x:Name="txtTotalAmount" Margin="104,181,355,28" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label Content="Status:" Margin="450,155,109,54" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <ComboBox x:Name="cmbStatus" Margin="450,181,9,28" Grid.Row="1" FontFamily="Times New Roman" FontWeight="Bold">
+            <ComboBoxItem Content="Booked"/>
+            <ComboBoxItem Content="Checked In"/>
+            <ComboBoxItem Content="Checked Out"/>
+            <ComboBoxItem Content="Cancelled"/>
+        </ComboBox>
+        <Button x:Name="btnAddBooking" Content="Add" Click="btnAddBooking_Click" Margin="76,0,483,30" FontFamily="Times New Roman" FontWeight="Bold" Foreground="White" Background="#FF26667F" Grid.Row="2"/>
+        <Button x:Name="btnUpdateBooking" Content="Update" Click="btnUpdateBooking_Click" Margin="199,0,360,30" Foreground="White" Background="#FF26667F" FontFamily="Times New Roman" FontWeight="Bold" Grid.Row="2"/>
+        <Button x:Name="btnDeleteBooking" Content="Delete" Click="btnDeleteBooking_Click" Margin="322,0,237,30" Background="#FF26667F" Foreground="White" FontFamily="Times New Roman" FontWeight="Bold" Grid.Row="2"/>
+
+        <DataGrid x:Name="dgBookings" Grid.Row="2" Margin="-10,32,10,29" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgBookings_SelectionChanged" Grid.RowSpan="5" FontFamily="Times New Roman" FontWeight="Bold" Background="#FF124170" Grid.ColumnSpan="2" Foreground="#FF124170">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*"/>
+                <DataGridTextColumn Header="Room ID" Binding="{Binding RoomId}" Width="*"/>
+                <DataGridTextColumn Header="Customer ID" Binding="{Binding CustomerId}" Width="*"/>
+                <DataGridTextColumn Header="Check In" Binding="{Binding CheckIn}" Width="*"/>
+                <DataGridTextColumn Header="Check Out" Binding="{Binding CheckOut}" Width="*"/>
+                <DataGridTextColumn Header="Total Amount" Binding="{Binding TotalAmount}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Booking Management" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold" Height="58" Width="360" Background="#FFDDF4E7" Grid.RowSpan="2" Margin="0,-6,0,0"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Height="20" Margin="445,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.586,0.575" Background="#FF26667F" FontFamily="Times New Roman" FontWeight="Bold" Click="Button_Click" Foreground="White"/>
+        <Button Content="Close" HorizontalAlignment="Left" Margin="580,0,0,30" Grid.Row="2" Width="120" Background="#FFAC0000" FontFamily="Times New Roman" FontWeight="Bold" Height="20" VerticalAlignment="Bottom" Click="Button_Click_1" Grid.ColumnSpan="2" Foreground="White"/>
+        <DatePicker x:Name="dpCheckOut" HorizontalAlignment="Left" Height="27" Margin="450,128,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205" FontFamily="Times New Roman" FontWeight="Bold"/>
+    </Grid>
+</Window>

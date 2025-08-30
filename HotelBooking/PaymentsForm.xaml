@@ -1,0 +1,86 @@
+﻿<Window x:Class="HotelBooking.PaymentsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Payments Management" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen" Background="#DDF4E7">
+
+    <Grid>
+        <StackPanel Margin="20">
+
+            <TextBlock Text="Payment Management" 
+                       FontSize="28" FontWeight="Bold" 
+                       Foreground="#124170"
+                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+
+            <Border Background="#67C090" CornerRadius="8" Padding="20" Margin="0,0,0,20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Text="Payment ID" Grid.Row="0" Grid.Column="0" 
+                               VerticalAlignment="Center" FontWeight="Bold"/>
+                    <TextBox x:Name="txtPaymentId" Grid.Row="0" Margin="117,5,93,5" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontWeight="Bold"/>
+
+
+                    <TextBlock Text="Booking ID" Grid.Row="0" Grid.Column="2" 
+                               VerticalAlignment="Center" FontWeight="Bold"/>
+                    <TextBox x:Name="txtBookingId" Grid.Row="0" Grid.Column="2" Margin="117,5,93,5" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontWeight="Bold"/>
+
+
+                    <TextBlock Text="Amount" Grid.Row="1" Grid.Column="0" 
+                               VerticalAlignment="Center" FontWeight="Bold"/>
+                    <TextBox x:Name="txtAmount" Grid.Row="1" Margin="117,5,93,5" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontWeight="Bold"/>
+
+
+                    <TextBlock Text="Payment Date" Grid.Row="1" Grid.Column="2" 
+                               VerticalAlignment="Center" FontWeight="Bold"/>
+                    <DatePicker x:Name="dpPaymentDate" Grid.Row="1" Grid.Column="2" Margin="117,5,93,5" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontWeight="Bold"/>
+
+
+                    <TextBlock Text="Method" Grid.Row="2" Grid.Column="0" 
+                               VerticalAlignment="Center" FontWeight="Bold"/>
+                    <ComboBox x:Name="cmbMethod" Grid.Row="2" Margin="115,5,95,5" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontWeight="Bold">
+                        <ComboBoxItem Content="Cash"/>
+                        <ComboBoxItem Content="Credit Card"/>
+                        <ComboBoxItem Content="Debit Card"/>
+                        <ComboBoxItem Content="Bank Transfer"/>
+                    </ComboBox>
+
+
+                    <TextBlock Text="Status" Grid.Row="2" Grid.Column="2" 
+                               VerticalAlignment="Center" FontWeight="Bold"/>
+                    <ComboBox x:Name="cmbStatus" Grid.Row="2" Grid.Column="2" Margin="117,5,93,5" Grid.ColumnSpan="2" FontFamily="Times New Roman" FontWeight="Bold">
+                        <ComboBoxItem Content="Paid"/>
+                        <ComboBoxItem Content="Pending"/>
+                        <ComboBoxItem Content="Cancelled"/>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Button Content="Add Payment" Width="120" Margin="10" Background="#26667F" Foreground="White" Click="BtnAdd_Click"/>
+                <Button Content="Update Payment" Width="120" Margin="10" Background="#26667F" Foreground="White" Click="BtnUpdate_Click"/>
+                <Button Content="Delete Payment" Width="120" Margin="10" Background="#26667F" Foreground="White" Click="BtnDelete_Click"/>
+                <Button Content="Clear" Width="120" Margin="10" Background="#26667F" Foreground="White" Click="BtnClear_Click"/>
+                <Button Content="Close" Width="120" Margin="10" Background="DarkRed" Foreground="White" Click="BtnClose_Click"/>
+            </StackPanel>
+
+
+            <DataGrid x:Name="dgPayments" AutoGenerateColumns="True" Height="200" 
+                      SelectionChanged="dgPayments_SelectionChanged" Background="#FF26667F" Width="654" FontFamily="Times New Roman" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>

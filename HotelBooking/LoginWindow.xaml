@@ -1,0 +1,71 @@
+﻿<Window x:Class="HotelBooking.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NC Hotels Pvt Limited - Login" Height="400" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#DDF4E7">
+
+    <Grid>
+
+        <Border Background="#124170" Height="49" VerticalAlignment="Top">
+            <TextBlock Text="🏨 NC Hotels Pvt Limited"
+                       Foreground="White"
+                       FontFamily="Segoe UI"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <Border Background="White" CornerRadius="15" Width="350" Height="273"
+                VerticalAlignment="Top" HorizontalAlignment="Center"
+                BorderBrush="#67C090" BorderThickness="2" Padding="20" Margin="0,60,0,0" >
+            <StackPanel>
+
+                <TextBlock Text="Login to Continue"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="#124170"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,15"/>
+
+                <TextBlock Text="Username" Foreground="#124170" FontWeight="Bold"/>
+                <TextBox x:Name="txtUsername" Height="30" Margin="0,5,0,10" BorderBrush="#67C090" FontFamily="Times New Roman" FontWeight="Bold" FontSize="16"/>
+
+
+                <TextBlock Text="Password" Foreground="#124170" FontWeight="Bold"/>
+                <Grid>
+
+                    <PasswordBox x:Name="txtPassword" Height="30" Margin="0,5,40,5" BorderBrush="#67C090" FontFamily="Times New Roman" FontWeight="Bold" FontSize="14"/>
+
+                    <TextBox x:Name="txtPasswordVisible" Height="30" Margin="0,5,40,5" BorderBrush="#67C090"
+                             Visibility="Collapsed"/>
+
+                    <Button x:Name="btnShowPassword"
+                            Content="👁"
+                            Width="35" Height="30"
+                            Margin="0,5,0,5"
+                            HorizontalAlignment="Right" Click="btnShowPassword_Click"
+ />
+                </Grid>
+
+                <TextBlock x:Name="lblError" Foreground="Red" FontWeight="Bold"
+                           Margin="0,5,0,0" HorizontalAlignment="Center"/>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0" >
+                    <Button x:Name="btnLogin" Content="Login"
+                            Background="#26667F" Foreground="White"
+                            FontWeight="Bold" Width="120" Height="35" Margin="5,0"
+                            Click="btnLogin_Click"/>
+
+                    <Button x:Name="btnClose" Content="Close"
+                            Background="#E74C3C" Foreground="White"
+                            FontWeight="Bold" Width="120" Height="35" Margin="5,0"
+                            Click="btnClose_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
